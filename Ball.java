@@ -1,20 +1,31 @@
 import java.awt.Point;
 
-public class Ball extends Point{
-   
+public class Ball {
+   private double x;
+   private double y;
    private double velX;
    private double velY;
-   private double diamter;
+   private int diameter;
    
-   public Ball(double x, double y, double vx, double vy, double d){
-      super();
+   public Ball(double x, double y, double vx, double vy, int d){
+      this.x = x;
+      this.y = y;
       velX = vx;
       velY = vy;
-      diamter = d;
+      diameter = d;
    }
-
+   public int getIntX(){return (int) x; }
+   public int getIntY(){return (int) y; }
+   public double getX(){return x; }
+   public double getY(){return y; }
    public double getVelX(){ return velX; }
    public double getVelY(){ return velY; }
+   public int getDiameter(){ return diameter; }
+   
+   public void moveStep(){
+      x = x+(int)velX;
+      y = y+(int)velY;
+   }   
    
    public double distance(Point a, Point b){
    

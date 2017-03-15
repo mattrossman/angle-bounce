@@ -8,7 +8,7 @@ import javax.swing.JButton;
 public class AngleBounceDriver {
 
    public static void main(String[] args){
-      /*
+      
       JFrame window = new JFrame("Physics test");
       window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
       window.setLayout(new BorderLayout());
@@ -18,7 +18,7 @@ public class AngleBounceDriver {
       
       window.setSize(1000,1000);
       window.setVisible(true);;
-      */
+      
    }
 
 }

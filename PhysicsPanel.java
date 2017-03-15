@@ -7,16 +7,11 @@ import javax.swing.JPanel;
 import javax.swing.Timer;
 
 public class PhysicsPanel extends JPanel implements ActionListener{
-
-   private final int X = 0;
-   private final int Y = 1;
-   
-   private double[] pos = {500,500};
-   private double[] vel = {10,0};
    
    private Terrain ter = new Terrain();
    
-   private int diameter = 20;
+   private Ball b = new Ball(500,200,5,0,20);
+   
    private double gravity = 0.75;
    
    public PhysicsPanel(){
@@ -32,15 +27,15 @@ public class PhysicsPanel extends JPanel implements ActionListener{
    
    public void step(){
    
-      collisions();
+      //collisions();
       
-      pos[X]+=vel[X];
-      pos[Y]+=vel[Y];
+      b.moveStep();
       
       repaint();
    }
    
    private void collisions(){
+   /*
       double nextLeft = pos[X]+ vel[X];
       double nextRight = nextLeft+diameter;
       double nextTop = pos[Y]+ vel[Y];
@@ -53,13 +48,14 @@ public class PhysicsPanel extends JPanel implements ActionListener{
             
       if (nextLeft <= 0 || nextRight >= getWidth()-1)
          vel[X]*=-1;
+         */
    }
    
    public void paintComponent(Graphics g){
       super.paintComponent(g);
       
       g.setColor(Color.RED);
-      g.fillOval((int) pos[X],(int) pos[Y],diameter,diameter);
+      g.fillOval(b.getIntX(),b.getIntY(),b.getDiameter(),b.getDiameter());
       g.setColor(Color.GREEN);
       
    }

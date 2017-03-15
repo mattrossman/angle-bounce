@@ -21,34 +21,19 @@ public class PhysicsPanel extends JPanel implements ActionListener{
       timer.start();
    }
    
+   public double getGravity() {return gravity; }
+   
    public void actionPerformed(ActionEvent e){
       step();
    }
    
    public void step(){
    
-      collisions();
+      b.collisions(this);
       
       b.moveStep();
       
       repaint();
-   }
-   
-   private void collisions(){
-   
-      double nextLeft = b.getX() + b.getVelX();
-      double nextRight = nextLeft+b.getDiameter();
-      double nextTop = b.getY()+ b.getVelY();
-      double nextBottom = nextTop + b.getDiameter();
-      
-      if (nextBottom >= getHeight()-1 || nextTop <= 0)
-         b.setVelY(b.getVelY()*(-1));
-      else
-         b.setVelY(b.getVelY()+gravity);
-            
-      if (nextLeft <= 0 || nextRight >= getWidth()-1)
-         b.setVelX(b.getVelX()*(-1));
-      
    }
    
    public void paintComponent(Graphics g){

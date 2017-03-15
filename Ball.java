@@ -1,4 +1,5 @@
 import java.awt.Point;
+import javax.swing.JPanel;
 
 public class Ball {
    private double x;
@@ -35,7 +36,7 @@ public class Ball {
       double y0 = this.getY();
       double x1 = a.getX();
       double y1 = a.getY();
-      double x2 = b.getX();
+      double x2 = x;
       double y2 = b.getY();
         
       // numerator
@@ -46,6 +47,24 @@ public class Ball {
       
       return (num/den);
    
+   }
+   
+      
+   public void collisions(PhysicsPanel panel){
+   
+      double nextLeft = x + velX;
+      double nextRight = nextLeft+diameter;
+      double nextTop = y + velY;
+      double nextBottom = nextTop + diameter;
+      
+      if (nextBottom >= panel.getHeight()-1 || nextTop <= 0)
+         velY*=-1;
+      else
+         velY+=panel.getGravity();
+            
+      if (nextLeft <= 0 || nextRight >= panel.getWidth()-1)
+         velX*=-1;
+      
    }
 
 }

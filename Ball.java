@@ -20,6 +20,8 @@ public class Ball {
    public double getY(){return y; }
    public double getVelX(){ return velX; }
    public double getVelY(){ return velY; }
+   public void setVelX(double vx){velX = vx; }
+   public void setVelY(double vy){velY = vy; }
    public int getDiameter(){ return diameter; }
    
    public void moveStep(){
